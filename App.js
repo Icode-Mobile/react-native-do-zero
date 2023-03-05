@@ -1,20 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import * as Notify from 'expo-notifications';
+
+import Home from './src/screens/Home';
+import Icons from './src/screens/Icons';
+import Lists from './src/screens/Lists';
+import Lottie from './src/screens/Lottie';
+import Animation from './src/screens/Animation';
+import Images from './src/screens/Images';
+import Notifications from './src/screens/Notifications';
+
+const Stack = createNativeStackNavigator();
+
+Notify.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldPlaySound: true,
+    shouldShowAlert: true,
+    shouldSetBadge: true,
+  }),
+});
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name='Home' component={Home} />
+        <Stack.Screen name='Icons' component={Icons} />
+        <Stack.Screen name='Lists' component={Lists} />
+        <Stack.Screen name='Lottie' component={Lottie} />
+        <Stack.Screen name='Animation' component={Animation} />
+        <Stack.Screen name='Images' component={Images} />
+        <Stack.Screen name='Notifications' component={Notifications} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

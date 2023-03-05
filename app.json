@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "exemple-app",
-    "slug": "exemple-app",
+    "name": "React Native Do Zero",
+    "slug": "react-native-do-zero",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
@@ -11,20 +11,43 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
+    "runtimeVersion": "1.0.0",
+    "jsEngine": "hermes",
+    "sdkVersion": "48.0.0",
+    "notification": {
+      "color": "#222222",
+      "icon": "./assets/icon.png"
+    },
+    "androidStatusBar": {
+      "hidden": true
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "runtimeVersion": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "runtimeVersion": "1.0.0",
+      "permissions": ["android.permission.RECORD_AUDIO"],
+      "package": "com.icode_mobile.reactnativedozero"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "platforms": ["android", "ios"],
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "20f6a87a-7d94-474e-b32e-08222f27d84f"
+      }
     }
   }
 }
